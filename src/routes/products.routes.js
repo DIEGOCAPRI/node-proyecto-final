@@ -11,11 +11,11 @@ import { getProducts,
 const router = Router();
 
 router.post("/login", login);
-router.get("/products",auth, getProducts);
+router.get("/products", getProducts);
 router.get("/products/:id", getProductById);
-router.post("/product/alta", createProduct);
-router.delete("/product/delete/:id", deleteProduct);
-router.put("/product/update/:id", updateProduct);
+router.post("/product/alta",auth, createProduct);
+router.delete("/product/delete/:id",auth, deleteProduct);
+router.put("/product/update/:id",auth, updateProduct);
 
 
 
