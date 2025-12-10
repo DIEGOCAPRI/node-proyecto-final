@@ -19,6 +19,9 @@ app.use((req, res, next) => {
   res.status(404).json({ error: "Not Found" });
 });
 
+if(process.env.ENTORNO == "DEV"){
 app.listen(PORT, () => {
   console.log(`Servidor iniciado en http://localhost:${PORT}`);
-});
+})};
+
+export default app;
