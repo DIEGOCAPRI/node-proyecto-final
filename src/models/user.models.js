@@ -29,3 +29,20 @@ export const createUser = async (email, password) => {
         throw error;
     }
 }
+
+export const checkUser = async (email) =>  {
+    try {
+        const snapshot = await getDocs(userCollection);
+        const existeUser = snapshot.docs.find((doc)=>doc.data().email == email);
+        
+        if(!existeUser) {
+            return null;
+        }
+        return { id: existeUser.id, ...existeUser.data() };
+        
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+
+}

@@ -14,6 +14,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", productsRouter);
 
+
+app.use((req, res, next) => {
+  res.status(404).json({ error: "Not Found" });
+});
+
 app.listen(PORT, () => {
   console.log(`Servidor iniciado en http://localhost:${PORT}`);
 });
