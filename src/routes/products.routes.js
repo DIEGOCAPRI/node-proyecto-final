@@ -6,10 +6,12 @@ import { getProducts,
          updateProduct
  } from "../controllers/products.controller.js";
  import {login} from "../controllers/login.controller.js";
+ import {createUser} from "../controllers/user.controller.js";
  import {auth} from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
+router.post("/createuser", createUser)
 router.post("/login", login);
 router.get("/products", getProducts);
 router.get("/products/:id", getProductById);
